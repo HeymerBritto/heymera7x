@@ -1,10 +1,11 @@
 import KoaRouter from 'koa-router'
+import { IUser } from './users-model';
 import { isNullOrUndefined } from 'util';
 import { authMethod, loginMethod } from '../jwt/authenticated';
 import { OkResponse } from '../../api/api-response/ok-response';
 import { GenericController } from "../../generic/controller/generic-controller";
 
-class UsersController extends GenericController {
+class UsersController extends GenericController<IUser> {
 
     applyRoutes(koaRouter: KoaRouter<any, {}>): void {
 

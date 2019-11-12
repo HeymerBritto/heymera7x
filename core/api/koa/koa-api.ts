@@ -5,6 +5,7 @@ import { config } from '../../../config/api-config';
 import { GenericResponse } from '../api-response/generic-response';
 import { IGenericController } from '../../generic/controller/generic-controller';
 import { Server } from 'http';
+import { ModelBase } from '../../generic/model/base-model';
 
 const cors = require('@koa/cors');
 const koaBody = require('koa-body');
@@ -74,7 +75,7 @@ export class KoaServer {
         });
     }
 
-    applyRoutes(controllers: IGenericController[]) {
+    applyRoutes(controllers: IGenericController<ModelBase>[]) {
 
         for (let controller of controllers) {
             controller.applyRoutes(this.router);
