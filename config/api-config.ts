@@ -1,3 +1,5 @@
+import { mongoConn } from "../core/db/mongodb/mongo";
+
 export const config = {
     koa: {
         port: process.env.PORT || 5001,
@@ -14,5 +16,9 @@ export const config = {
         lowercase_keys: false,
         role: undefined,
         pageSize: 4096,
-    }
+    },
+    mongo: {
+        url: process.env.DB_URL || 'mongodb://localhost/my-node-restfull'
+    },
+    myConn: mongoConn
 }

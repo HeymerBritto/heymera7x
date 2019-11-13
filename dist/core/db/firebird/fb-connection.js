@@ -50,4 +50,5 @@ class Firebird {
         });
     }
 }
+exports.Firebird = Firebird;
 exports.firebird = new Firebird();

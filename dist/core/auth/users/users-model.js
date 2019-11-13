@@ -8,9 +8,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = __importStar(require("mongoose"));
+const mongoose_1 = require("mongoose");
 const userSchema = new mongoose.Schema({
     _id: {
-        type: mongoose.Types.ObjectId
+        type: mongoose_1.Schema.Types.ObjectId
     },
     name: {
         type: String

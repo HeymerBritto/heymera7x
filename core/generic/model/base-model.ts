@@ -1,5 +1,5 @@
-import * as mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 export interface ModelBase extends mongoose.Document {
-    _id: mongoose.Types.ObjectId
+    _id: Schema.Types.ObjectId
 }

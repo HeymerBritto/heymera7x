@@ -1,5 +1,6 @@
 import { KoaServer } from "./core/api/koa/koa-api";
 import { usersController } from "./core/auth/users/users-controller";
+import { mongoConn } from "./core/db/mongodb/mongo";
 
 //Run Commands to Create a Project
 
@@ -14,5 +15,9 @@ import { usersController } from "./core/auth/users/users-controller";
 
 export const koaServer = new KoaServer();
 
-koaServer.applyRoutes( [usersController] );
+koaServer.applyRoutes([usersController]);
 koaServer.init();
+
+mongoConn.createConnection().then(() => {
+    console.log('vai toma no cu')
+})

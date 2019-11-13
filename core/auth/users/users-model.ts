@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose'
 import { ModelBase } from '../../generic/model/base-model'
+import { Schema } from 'mongoose'
 
 export interface IUser extends ModelBase {
     username: string,
@@ -9,7 +10,7 @@ export interface IUser extends ModelBase {
 
 const userSchema: mongoose.Schema = new mongoose.Schema({
     _id: {
-        type: mongoose.Types.ObjectId
+        type: Schema.Types.ObjectId
     },
     name: {
         type: String

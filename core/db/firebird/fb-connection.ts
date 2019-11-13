@@ -1,7 +1,7 @@
 import nodeFirebird, { Database, DatabaseCallback, QueryCallback } from 'node-firebird'
 import { config } from '../../../config/api-config';
 
-class Firebird {
+export class Firebird {
 
     options(): nodeFirebird.Options {
 

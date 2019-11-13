@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const mongo_1 = require("../core/db/mongodb/mongo");
 exports.config = {
     koa: {
         port: process.env.PORT || 5001,
@@ -16,5 +17,9 @@ exports.config = {
         lowercase_keys: false,
         role: undefined,
         pageSize: 4096,
-    }
+    },
+    mongo: {
+        url: process.env.DB_URL || 'mongodb://localhost/my-node-restfull'
+    },
+    myConn: mongo_1.mongoConn
 };
