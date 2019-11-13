@@ -14,5 +14,5 @@ exports.koaServer = new koa_api_1.KoaServer();
 exports.koaServer.applyRoutes([users_controller_1.usersController]);
 exports.koaServer.init();
 mongo_1.mongoConn.createConnection().then(() => {
-    console.log('vai toma no cu');
+    console.log('Testando conexão');
 });

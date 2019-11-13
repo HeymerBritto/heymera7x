@@ -14,22 +14,21 @@ const util_1 = require("util");
 const authenticated_1 = require("../jwt/authenticated");
 const ok_response_1 = require("../../api/api-response/ok-response");
 const generic_controller_1 = require("../../generic/controller/generic-controller");
+const error_response_1 = require("../../api/api-response/error-response");
 class UsersController extends generic_controller_1.GenericController {
     applyRoutes(koaRouter) {
-        koaRouter.get('/users/getall', authenticated_1.authMethod, (ctx, next) => {
-            this.conn.createConnection().then((db) => __awaiter(this, void 0, void 0, function* () {
+        koaRouter.get('/users/getall', authenticated_1.authMethod, (ctx, next) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                yield this.conn.createConnection();
                 ctx.body = new ok_response_1.OkResponse(yield users_model_1.User.find({}));
                 yield this.conn.disconnect();
                 next();
-            })).catch((error) => {
-                ctx.status = 404;
-                ctx.body = {
-                    status: 'error',
-                    message: error.message
-                };
+            }
+            catch (error) {
+                ctx.body = new error_response_1.ErrorResponse(error.message, ctx);
                 next();
-            });
-        });
+            }
+        }));
         koaRouter.get('/users/:id', (ctx, next) => {
             if (util_1.isNullOrUndefined(ctx.params.id)) {
                 ctx.status = 404;

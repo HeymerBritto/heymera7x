@@ -19,5 +19,5 @@ koaServer.applyRoutes([usersController]);
 koaServer.init();
 
 mongoConn.createConnection().then(() => {
-    console.log('vai toma no cu')
+    console.log('Testando conexão')
 })
